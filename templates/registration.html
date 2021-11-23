@@ -1,0 +1,39 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+<!-- post wraper start-->
+<section class="block-wrapper">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-5 mx-auto">
+
+				<div class="ts-grid-box">
+					<div class="reg-page">
+						<h3 class="log-sign-title mb-25">Please Signup</h3>
+						<form method="post">
+							{% csrf_token %}
+							{{ form|crispy }}
+							<div class="form-group">
+								<button type="submit" class="btn btn-primary btn-block"> Register </button>
+							</div> <!-- form-group// -->
+							<small class="text-muted">By clicking the 'Sign Up' button, you confirm that you accept our
+								Terms of use and Privacy Policy.</small>
+						</form>
+						<div class="border-top card-body text-center">Have an account? <a href="login.html">Log In</a>
+						</div>
+					</div> <!-- card.// -->
+
+				</div><!-- grid box end -->
+			</div>
+			<!-- col end-->
+
+		</div>
+		<!-- row end-->
+	</div>
+	<!-- container end-->
+</section>
+<!-- post wraper end-->
+
+
+{% endblock %}

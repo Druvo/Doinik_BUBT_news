@@ -1,0 +1,254 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block content %}
+<!-- start block wrapper -->
+<section class="block-wrapper p-30 ">
+	<div class="container">
+		<div class="row ts-post-style-3">
+			{% for obj in latest_news %}
+			<div class="col-lg-4 p-1">
+				<div class="ts-overlay-style">
+					<div class="item">
+						<div class="ts-post-thumb">
+							<a href="{% url 'details' obj.pk %}">
+								<img class="img-fluid" src="{{ obj.image.url }}" alt="">
+							</a>
+						</div>
+
+						<div class="overlay-post-content">
+							<div class="post-content">
+								<a class="post-cat ts-blue-bg" href="{% url 'details' obj.pk %}">{{ obj.category }}</a>
+								<h3 class="post-title md">
+									<a href="{% url 'details' obj.pk %}">{{ obj.title }}</a>
+								</h3>
+								<ul class="post-meta-info">
+									<li>
+										<i class="fa fa-clock-o"></i>
+										{{ obj.create_at|timesince }}
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<!-- end item-->
+				</div>
+			</div>
+			{% endfor %}
+		</div>
+	</div>
+</section>
+<!-- end  blog wrapper -->
+
+<section class="block-wrapper">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-9">
+				<div class=" watch-post mb-30">
+					<div class="ts-heading-item">
+						<h2 class="ts-title">
+							<span>CSE</span>
+						</h2>
+					</div>
+					<div class="row">
+						{% for obj in cse_news %}
+						<div class="col-lg-6">
+							<div class="nav post-list-box" id="nav-tab" role="tablist">
+								<a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="{% url 'details' obj.pk %}"
+									role="tab" aria-controls="nav-home" aria-selected="true">
+									<div class="post-content media">
+										<img class="d-flex" src="{{ obj.image.url }}" alt="">
+										<div class="media-body align-self-center">
+											<h4 class="post-title">
+												{{ obj.title }}
+											</h4>
+											<span class="post-date-info">
+												<i class="fa fa-clock-o"></i>
+												{{ obj.create_at|timesince }}
+											</span>
+										</div>
+									</div>
+								</a>
+							</div>
+						</div>
+						{% endfor %}
+					</div>
+					<!-- row end-->
+				</div>
+				<!-- ts-populer-post-box end-->
+				<div class="ts-heading-item">
+					<h2 class="ts-title">
+						<span>Civil</span>
+					</h2>
+				</div>
+				<div class="row mb-10">
+					{% for obj in civil_news %}
+					<div class="col-lg-6">
+						<div class="ts-overlay-style">
+							<div class="item">		
+								<div class="ts-post-thumb">
+									<a class="post-cat ts-blue-bg" href="{% url 'details' obj.pk %}">{{obj.category}}</a>
+									<a href="#">
+										<img class="img-fluid" src="{{ obj.image.url }}" alt="">
+									</a>
+
+								</div>
+								<div class="overlay-post-content">
+									<div class="post-content">
+										<h3 class="post-title md">
+											<a href="{% url 'details' obj.pk %}">{{ obj.title }}</a>
+										</h3>
+										<span class="post-date-info">
+											<i class="fa fa-clock-o"></i>
+											{{ obj.create_at|timesince }}
+										</span>
+									</div>
+								</div>
+							</div>
+							<!-- end item-->
+						</div>
+						<!-- ts overlay end-->
+					</div>
+					{% endfor %}
+				</div>
+				<!-- row end-->
+				<div class="ts-grid-box bg-dark-item">
+					<div class="ts-heading-item">
+						<h2 class="ts-title">
+							<span>EEE</span>
+						</h2>
+					</div>
+					<div class="row ts-grid-item ts-post-style-2">
+						{% for obj in eee_news %}
+						<div class="col-lg-4">
+								<div class="ts-overlay-style">
+							<div class="item">
+								<div class="ts-post-thumb">
+									<a class="post-cat ts-blue-bg" href="{% url 'details' obj.pk %}">{{obj.category}}</a>
+									<a href="{% url 'details' obj.pk %}">
+										<img class="img-fluid" src="{{ obj.image.url }}" alt="">
+									</a>
+
+								</div>
+								<div class="overlay-post-content">
+									<div class="post-content">
+										<h3 class="post-title md">
+											<a href="{% url 'details' obj.pk %}">{{ obj.title }}</a>
+										</h3>
+										<span class="post-date-info">
+											<i class="fa fa-clock-o"></i>
+											{{ obj.create_at|timesince }}
+										</span>
+									</div>
+								</div>
+							</div>
+							<!-- end item-->
+						</div>
+						<!-- ts overlay end-->
+						</div>
+						{% endfor %}
+					</div>
+				</div>
+			</div>
+			<!-- col end-->
+			<div class="col-lg-3">
+				<div class="right-sidebar-1">
+					<div class="widgets widgets-item">
+						<h3 class="widget-title">
+							<span>On social</span>
+						</h3>
+						<ul class="ts-block-social-list">
+							<li class="ts-facebook">
+								<a href="#">
+									<i class="fa fa-facebook"></i>
+									<b>facebook </b>
+									<span>0</span>
+								</a>
+
+							</li>
+							
+							<li class="ts-twitter">
+								<a href="#">
+									<i class="fa fa-twitter"></i>
+									<b>Twitter </b>
+									<span>0</span>
+								</a>
+
+							</li>
+							<li class="ts-pinterest">
+								<a href="#">
+									<i class="fa fa-pinterest-p"></i>
+									<b>facebook </b>
+									<span>0</span>
+								</a>
+
+							</li>
+						</ul>
+					</div>
+
+					<div class="widgets widgets-item ts-grid-item  widgets-populer-post">
+						<h3 class="widget-title">
+							<span>Latest Post</span>
+						</h3>
+						{% for post in popular %}
+						<div class="post-content media">
+							<img class="d-flex sidebar-img" src="{{ post.image.url }}" alt="">
+							<div class="media-body align-self-center">
+								<h4 class="post-title">
+									<a href="{% url 'details' post.pk %}">{{ post.title }}</a>
+								</h4>
+							</div>
+						</div>
+						<!-- post content end-->
+						{% endfor %}
+					</div>
+					<!-- widgets end-->
+					<div class="widgets widgets-item">
+						<h3 class="widget-title">
+							<span>Category</span>
+						</h3>
+						<ul class="category-list">
+							{% for obj in category %}
+							<li>
+								<a href="">{{ obj.name }}
+									<span class="ts-orange-bg">0</span>
+								</a>
+							</li>
+							{% endfor %}
+						</ul>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</section>
+
+
+<section class="block-wrapper">
+	<div class="container">
+										{% for obj in latest_news %}
+						<div class="row">
+			<div class="col-lg-12">
+							<div class="nav post-list-box" id="nav-tab" role="tablist">
+								<a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="{% url 'details' obj.pk %}"
+									role="tab" aria-controls="nav-home" aria-selected="true">
+									<div class="post-content media">
+										<img class="d-flex" src="{{ obj.image.url }}" alt="">
+										<div class="media-body align-self-center">
+											<h4 class="post-title">
+												{{ obj.title }}
+											</h4>
+											<span class="post-date-info">
+												<i class="fa fa-clock-o"></i>
+												{{ obj.create_at|timesince }}
+											</span>
+										</div>
+									</div>
+								</a>
+							</div>
+						</div>
+						</div>
+						{% endfor %}
+	</div>
+</section>
+{% endblock %}
